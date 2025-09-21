@@ -78,7 +78,7 @@ async function generateDebugInfoMessage() {
         if ("legcord" in window) return `Legcord v${window.legcord.version}`;
         if ("_thirdPartyClient" in window) {
             const tpc = window._thirdPartyClient;
-            return `[${tpc.name}](${tpc.link}) v${tpc.version}`;
+            return `[${tpc.name}](<${tpc.link}>) v${tpc.version}`;
         }
 
         // @ts-expect-error
