@@ -76,6 +76,10 @@ async function generateDebugInfoMessage() {
         if (IS_DISCORD_DESKTOP) return `Discord Desktop v${DiscordNative.app.getVersion()}`;
         if (IS_VESKTOP) return `Vesktop v${VesktopNative.app.getVersion()}`;
         if ("legcord" in window) return `Legcord v${window.legcord.version}`;
+        if ("_thirdPartyClient" in window) {
+            const tpc = window._thirdPartyClient;
+            return `[${tpc.name}](${tpc.link}) v${tpc.version}`;
+        }
 
         // @ts-expect-error
         const name = typeof unsafeWindow !== "undefined" ? "UserScript" : "Web";
